@@ -1,0 +1,15 @@
+<% include partials/header %>
+
+    <div class="container">
+        <h1>Sign Up</h1>
+
+        <form action="/signup" method="POST">
+            <input type="text" placeholder="Username" name="username" required>
+            <input type="password" placeholder="Password" name="password" required>
+            <button>Submit</button>
+        </form>
+    
+        <a href="/"><p>Back</p></a>
+    </div>
+
+<% include partials/footer %>
