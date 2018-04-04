@@ -1,11 +1,11 @@
-const express = require("express"),
-    mongoose = require("mongoose"),
-    passport = require("passport"),
-    bodyParser = require("body-parser"),
-    LocalStrategy = require("passport-local"),
-    passportLocalMongoose = require("passport-local-mongoose"),
-    User = require("./models/user"),
-    expressSession = require("express-session");
+const express               = require("express"),
+    mongoose                = require("mongoose"),
+    passport                = require("passport"),
+    bodyParser              = require("body-parser"),
+    LocalStrategy           = require("passport-local"),
+    passportLocalMongoose   = require("passport-local-mongoose"),
+    User                    = require("./models/user"),
+    expressSession          = require("express-session");
 
 const app = express();
 
@@ -56,7 +56,8 @@ app.get("/signup", (req, res) => {
 });
 
 app.post("/signup", (req, res) => {
-    User.register(new User({username: req.body.username}), req.body.password, (err, user) => {
+    let newUser = new User({username: req.body.username});
+    User.register(newUser, req.body.password, (err, user) => {
         if (err) {
             console.log(`Error: ${err}`);
             return res.render("signup");
